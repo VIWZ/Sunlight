@@ -39,6 +39,7 @@ background-color:ragb(255,156,0,0.45) !important;
 .vditor-ir__link {
     color: #0472bf;
     border-bottom: dashed 2px #0472bf;
+    text-decoration: unset;
 }
 .vditor-ir__link:hover {
     border-bottom: solid 2px #0472bf;
@@ -72,9 +73,9 @@ background-color:ragb(255,156,0,0.45) !important;
     background: linear-gradient(90deg, rgba(0,0,0,0.001), var(--b3-theme-background));
     pointer-events: none;
 }
-/* 点击页签，页签是橙色椭圆形，黑色边框的样式 */
+/* 点击页签，页签是橙色椭圆形，黑色边框的样式(v1.0.2颜色改淡) */
 .layout__wnd--active .layout-tab-bar .item--focus {
-    border-color: #000000;
+    border-color: rgb(0 0 0 / 55%);
 }
 li.item.item--focus{
     background-color: rgb(255 156 0 / 75%);
@@ -82,25 +83,20 @@ li.item.item--focus{
     border-right: solid 1px #000000;
     border-bottom: solid 1px #000000;
     border-left: solid 1px #000000;
+    background-image: linear-gradient(to right, rgba(255, 156, 0, 0.5), rgb(255 255 255 / 29%));
 }
 
-.b3-list--background .b3-list-item--focus {
-    background-color: rgb(255 156 0 / 75%) !important;
-    border-top: solid 1px #000000;
-    border-right: solid 1px #000000;
-    border-bottom: solid 1px #000000;
-    border-left: solid 1px #000000
-}
+
 
 /* 非焦点页签重置样式，并设置了动画效果 */
 .layout-tab-bar .item {
     border-radius:20px;
     margin-right: 0.5px;
     box-shadow: none;
-    border-top: solid 1px #000000;
-    border-right: solid 1px #000000;
-    border-bottom: solid 1px #000000;
-    border-left: solid 1px #000000;
+    border-top: solid 1px rgb(0 0 0 / 35%);
+    border-right: solid 1px rgb(0 0 0 / 35%);
+    border-bottom: solid 1px rgb(0 0 0 / 35%);
+    border-left: solid 1px rgb(0 0 0 / 35%);
     transition: all 300ms ease-in-out 0s;
 }
 /*文件树字体采用思源字体*/
@@ -130,6 +126,7 @@ font-weight: bold;
 /*文件树列表鼠标移动有颜色*/
 .b3-list--background .b3-list-item:hover {
     background-color: rgb(255 156 0 / 45%);
+    background-image: linear-gradient(to right, rgb(255 156 0 / 50%), rgb(255 221 167 / 78%));
 
 }
 
@@ -143,12 +140,20 @@ font-weight: bold;
     background-color: transparent;
     text-align: left;
     border: 0px;
-    border-radius: 9px;
+    border-radius: 11px;
     color: #000000;
 
     transition: all 200ms ease-in-out 0s;
 }
-
+/*文件树焦点项*/
+.b3-list--background .b3-list-item--focus {
+    background-color: rgb(255 156 0 / 75%) !important;
+    border-top: solid 1px rgb(0 0 0 / 35%);
+    border-right: solid 1px rgb(0 0 0 / 45%);
+    border-bottom: solid 1px rgb(0 0 0 / 35%);
+    border-left: solid 1px rgb(0 0 0 / 45%);
+    background-image: linear-gradient(to right, rgb(255 156 0 / 50%), rgb(255 221 167 / 78%));
+}
 .b3-list-item.b3-list-item--hide-action.b3-list-item--focus span:nth-child(2) {
     font-weight: 800;
     font-size: medium;
