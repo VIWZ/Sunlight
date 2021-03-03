@@ -1,16 +1,3 @@
-/*主题字体采用思源字体“Noto Sans SC”*/
-
-
-/*列表左边添加一条实线*/
-.vditor-reset ul, .vditor-reset ol {
-    padding-left: 2em;
-    margin-left: .5em;
-    margin-top: 0;
-    margin-bottom: 16px;
-    border-left: solid 2px rgba(0,0,0,.5);
-}
-
-
 /* 设置编辑器选择文本的颜色 */
 ::-moz-selection {
     background: #cddcef;
@@ -33,7 +20,7 @@ box-shadow: 0 5px 0 var(--b3-theme-primary-lighter);
 box-shadow: 0 5px 0 var(--b3-theme-primary-lighter);
 }
 .fn__flex-column  .dragover{
-background-color:ragb(255,156,0,0.45) !important;
+background-color:rgba(255,156,0,0.45) !important;
 }
 /*修改了链接样式*/
 .vditor-ir__link {
@@ -46,6 +33,7 @@ background-color:ragb(255,156,0,0.45) !important;
 }
 /* 页签 */
 /* 页签文字 */
+
 .layout-tab-bar .item__text {
     white-space: nowrap;
     flex: 1;
@@ -73,17 +61,20 @@ background-color:ragb(255,156,0,0.45) !important;
     background: linear-gradient(90deg, rgba(0,0,0,0.001), var(--b3-theme-background));
     pointer-events: none;
 }
-/* 点击页签，页签是橙色椭圆形，黑色边框的样式(v1.0.2颜色改淡) */
+/* 点击页签，页签是橙色椭圆形，黑色边框的样式(v1.0.2颜色改淡) （1.0.3添加阴影）*/
 .layout__wnd--active .layout-tab-bar .item--focus {
     border-color: rgb(0 0 0 / 55%);
+
 }
 li.item.item--focus{
     background-color: rgb(255 156 0 / 75%);
-    border-top: solid 1px #000000;
-    border-right: solid 1px #000000;
-    border-bottom: solid 1px #000000;
-    border-left: solid 1px #000000;
+    border-color: rgb(0 0 0 / 55%);
+    border-top: solid 1px;
+    border-right: solid 1px;
+    border-bottom: solid 1px ;
+    border-left: solid 1px ;
     background-image: linear-gradient(to right, rgba(255, 156, 0, 0.5), rgb(255 255 255 / 29%));
+box-shadow: 3px 1px 6px 0px #888888;
 }
 
 
@@ -98,6 +89,14 @@ li.item.item--focus{
     border-bottom: solid 1px rgb(0 0 0 / 35%);
     border-left: solid 1px rgb(0 0 0 / 35%);
     transition: all 300ms ease-in-out 0s;
+}
+
+/*鼠标移动页签会有颜色和阴影*/
+.layout-tab-bar .item:hover {
+    background-color: rgb(255 156 0 / 75%) ;
+    background-image: linear-gradient(to right, rgb(255 156 0 / 70%), rgb(255 221 167 / 99%));
+    box-shadow: 1px 2px 4px 0px #888888;
+    transition: all 0ms ease-in-out 0s;
 }
 /*文件树字体采用思源字体*/
 .layout-tab-bar .item {
@@ -127,9 +126,10 @@ font-weight: bold;
 .b3-list--background .b3-list-item:hover {
     background-color: rgb(255 156 0 / 45%);
     background-image: linear-gradient(to right, rgb(255 156 0 / 50%), rgb(255 221 167 / 78%));
-
+    box-shadow: 6px 2px 6px 0px #888888;
+    margin: 0 13px 0 13px;
+    transition: all 0ms ease-in-out 0s;
 }
-
 /*文件树列表项*/
 .b3-list-item {
     font-family: Noto Sans SC;
@@ -139,11 +139,12 @@ font-weight: bold;
     position: relative;
     background-color: transparent;
     text-align: left;
-    border: 0px;
     border-radius: 11px;
     color: #000000;
-
-    transition: all 200ms ease-in-out 0s;
+    margin: 0 13px 0 13px;
+    transition: all 100ms ease-in-out 0s;
+    margin-top: 5px !important;
+    margin-bottom: 5px !important;
 }
 /*文件树焦点项*/
 .b3-list--background .b3-list-item--focus {
@@ -153,6 +154,7 @@ font-weight: bold;
     border-bottom: solid 1px rgb(0 0 0 / 35%);
     border-left: solid 1px rgb(0 0 0 / 45%);
     background-image: linear-gradient(to right, rgb(255 156 0 / 50%), rgb(255 221 167 / 78%));
+    box-shadow: 6px 2px 6px 0px #888888;
 }
 .b3-list-item.b3-list-item--hide-action.b3-list-item--focus span:nth-child(2) {
     font-weight: 800;
@@ -236,6 +238,7 @@ fill:black
     line-height: 1;
     background-color: var(--b3-theme-surface);
     z-index: 1;
+    background-size: cover;
 }
 
 .b3-tooltips__sw:hover {
@@ -249,20 +252,19 @@ fill:black
 }
 .vditor-ir__tag {
     display: inline-block;
-    padding: 0.05em 0.7em;
     margin: 0;
-    border-radius: 15px;
-    /* background-size: 20px 20px; */
-    /* word-break: break-word; */
     cursor: pointer;
     white-space: pre-wrap;
-    background-color: #399839;
-    color: #ffffff;
-    font-family: var(--b3-font-family-code);
-    font-size: 80%;
     font-weight: normal;
     text-decoration: none !important;
     text-align: center;
+    color: #399839;
+    font-family: Noto Sans SC;
+    padding: 2px 0;
+    border-bottom: 3px dashed;
+}
+.vditor-ir__tag:hover {
+    border-bottom: 3px solid #399839;
 }
 /*设置面板的列表高度*/
 .b3-list-item--big {
@@ -277,6 +279,8 @@ blockquote {
     border-color: #3884ff !important;
     padding: 1rem !important;
 }
+
+
 /*修改1-4级标题的样式*/
 .vditor-reset h1 {
     font-size: 1.65em;
@@ -384,6 +388,7 @@ blockquote {
 }
 .b3-menu__item:hover {
     background-color: rgb(255 156 0 / 65%)!important;
+    box-shadow: 6px 2px 6px 0px #888888;
 }
 
 /*任务列表的图标的样式修改*/
@@ -432,9 +437,9 @@ blockquote {
     /* 主色 */
     /* 更改为橙色 */
     --b3-theme-primary:rgb(255 156 0 / 75%);
-    --b3-theme-primary-light: #d4d4d452;
+    --b3-theme-primary-light: rgba(66, 133, 244, 0.54);
     --b3-theme-primary-lighter: rgba(66, 133, 244, 0.38);
-    --b3-theme-primary-lightest: rgba(255, 255, 255, 0);
+    --b3-theme-primary-lightest: rgba(66, 133, 244, 0.12);
     --b3-theme-secondary: #f3a92f;
     --b3-theme-background: #ffffff96;
     --b3-theme-surface: #ffffff;
